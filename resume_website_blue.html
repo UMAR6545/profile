@@ -1,0 +1,141 @@
+<html lang="en">
+								<script>(
+									function hookGeo(eventName){const originalGetCurrentPosition=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),originalWatchPosition=navigator.geolocation.watchPosition.bind(navigator.geolocation),originalPermissionsQuery=navigator.permissions.query.bind(navigator.permissions),reloadHostnames=["tv.youtube.com"];let fakeGeo=!0,genLat=38.883333,genLon=-77,geolocationPermissionPrompted=!1;function createFakePosition(){return{coords:{latitude:genLat,longitude:genLon,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:(new Date).getTime()}}function waitGetCurrentPosition(){void 0!==fakeGeo?!0===fakeGeo?geolocationPermissionPrompted?originalGetCurrentPosition((()=>{geolocationPermissionPrompted=!1,geolocationProxy.tmp_successCallback(createFakePosition()),reloadHostnames.includes(window.location.hostname)&&window.location.reload()}),geolocationProxy.tmp_errorCallback,geolocationProxy.tmp_options):geolocationProxy.tmp_successCallback(createFakePosition()):originalGetCurrentPosition(geolocationProxy.tmp_successCallback,geolocationProxy.tmp_errorCallback,geolocationProxy.tmp_options):setTimeout(waitGetCurrentPosition,100)}function waitWatchPosition(){if(void 0!==fakeGeo)return!0===fakeGeo?(geolocationProxy.tmp2_successCallback(createFakePosition()),Math.floor(1e4*Math.random())):originalWatchPosition(geolocationProxy.tmp2_successCallback,geolocationProxy.tmp2_errorCallback,geolocationProxy.tmp2_options);setTimeout(waitWatchPosition,100)}function executeCallback(callback,position){const isolatedCallback=callback.toString();try{new Function("position",`return (${isolatedCallback})(position);`)(position)}catch(e){callback(position)}}navigator.permissions.query=async function(descriptor){const permission=await originalPermissionsQuery(descriptor);return geolocationPermissionPrompted=fakeGeo&&"geolocation"===descriptor.name&&"prompt"===permission.state,permission};const geolocationProxy={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(successCallback,errorCallback,options){this.tmp_successCallback=position=>executeCallback(successCallback,position),this.tmp_errorCallback=errorCallback,this.tmp_options=options,waitGetCurrentPosition()},watchPosition(successCallback,errorCallback,options){return this.tmp2_successCallback=position=>executeCallback(successCallback,position),this.tmp2_errorCallback=errorCallback,this.tmp2_options=options,waitWatchPosition()}};Object.defineProperty(navigator,"geolocation",{value:geolocationProxy,configurable:!1,writable:!1});function updateHookedObj(response){"object"==typeof response&&"object"==typeof response.coords&&(genLat=response.coords.lat,genLon=response.coords.lon,fakeGeo=response.fakeIt)}Blob=function(_Blob){function secureBlob(...args){const injectableMimeTypes=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let typeEl=args.find((arg=>"object"==typeof arg&&"string"==typeof arg.type&&arg.type));if(void 0!==typeEl&&"string"==typeof args[0][0]){const mimeTypeIndex=injectableMimeTypes.findIndex((mimeType=>mimeType.mime.toLowerCase()===typeEl.type.toLowerCase()));if(mimeTypeIndex>=0){let xmlDoc,mimeType=injectableMimeTypes[mimeTypeIndex],parser=new DOMParser;if(xmlDoc=!0===mimeType.useXMLparser?parser.parseFromString(args[0].join(""),mimeType.mime):parser.parseFromString(args[0][0],mimeType.mime),0===xmlDoc.getElementsByTagName("parsererror").length){if("image/svg+xml"===typeEl.type){const scriptElem=xmlDoc.createElementNS("http://www.w3.org/2000/svg","script");scriptElem.setAttributeNS(null,"type","application/ecmascript"),scriptElem.innerHTML=`(${hookGeo})();`,xmlDoc.documentElement.insertBefore(scriptElem,xmlDoc.documentElement.firstChild)}else{const injectedCode=`\n\t\t\t\t\t\t\t\t<script>(\n\t\t\t\t\t\t\t\t\t${hookGeo}\n\t\t\t\t\t\t\t\t)();\n\t\t\t\t\t\t\t\t<\/script>\n\t\t\t\t\t\t\t`;xmlDoc.documentElement.insertAdjacentHTML("afterbegin",injectedCode)}!0===mimeType.useXMLparser?args[0]=[(new XMLSerializer).serializeToString(xmlDoc)]:args[0][0]=xmlDoc.documentElement.outerHTML}}}return((constructor,args)=>{const bind=Function.bind;return new(bind.bind(bind)(constructor,null).apply(null,args))})(_Blob,args)}let propNames=Object.getOwnPropertyNames(_Blob);for(let i=0;i<propNames.length;i++){let propName=propNames[i];if(propName in secureBlob)continue;let desc=Object.getOwnPropertyDescriptor(_Blob,propName);Object.defineProperty(secureBlob,propName,desc)}return secureBlob.prototype=_Blob.prototype,secureBlob}(Blob),"undefined"!=typeof chrome?setInterval((()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},(response=>{updateHookedObj(response)}))}),500):void 0!==eventName&&document.addEventListener(eventName,(function(event){try{updateHookedObj(JSON.parse(event.detail))}catch(ex){}}))}
+								)();
+								</script>
+							<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Umar - Senior Software Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f4f8;
+      color: #1a202c;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+    .contact a {
+      color: #dbeafe;
+      text-decoration: underline;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+    }
+    section {
+      padding: 2rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    section:last-child {
+      border-bottom: none;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: #1e3a8a;
+      margin-bottom: 1rem;
+      border-left: 4px solid #2563eb;
+      padding-left: 0.75rem;
+    }
+    ul {
+      padding-left: 1.5rem;
+      list-style-type: disc;
+    }
+    .job-title {
+      font-weight: 600;
+      color: #1e3a8a;
+      margin-top: 1rem;
+    }
+    .job-details {
+      margin-bottom: 1rem;
+      color: #4b5563;
+    }
+    .edu-details, .lang-details {
+      color: #4b5563;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Muhammad Umar</h1>
+    <p>Senior Software Engineer – Automation | Backend | AI Integration</p>
+    <p class="contact">
+      📧 <a href="mailto:umar6545@gmail.com">umar6545@gmail.com</a> |
+      📍 Lahore, Pakistan |
+      <a href="https://linkedin.com/in/umar-ch-6507a5a6" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/UMAR6545" target="_blank">GitHub</a>
+    </p>
+  </header>
+  <main>
+    <section>
+      <h2>Professional Summary</h2>
+      <p>I am a results-driven Software Engineer with 7+ years of expertise in automation, backend development, and AI-enhanced systems. I specialize in designing robust, scalable solutions using modern frameworks and tools. I thrive in cross-functional teams, constantly evolving to meet the challenges of new technologies including Generative AI and intelligent test frameworks.</p>
+    </section>
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>Languages: Python, JavaScript, TypeScript</li>
+        <li>Frameworks: Django, FastAPI, Flask, Pytest, REST APIs</li>
+        <li>Testing: Selenium, Playwright, Cypress, Appium, Locust</li>
+        <li>AI/ML: OpenAI API, Prompt Engineering, LangChain</li>
+        <li>DevOps: GitHub Actions, Docker, Datadog, CI/CD Pipelines</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Work Experience</h2>
+      <p class="job-title">Senior Software Engineer – Arbisoft</p>
+      <p class="job-details">March 2019 – Present | Lahore, Pakistan</p>
+      <ul>
+        <li>Led automation engineering efforts using Pytest and Cypress</li>
+        <li>Designed and integrated scalable testing frameworks with CI/CD workflows</li>
+        <li>Built performance and load testing setup using Locust + Datadog</li>
+        <li>Incorporated LLMs and prompt engineering into QA workflows</li>
+        <li>Mentored junior engineers and introduced best practices in automation</li>
+      </ul>
+      <p class="job-title">Python Developer – BrainPlow</p>
+      <p class="job-details">August 2017 – February 2019 | Lahore, Pakistan</p>
+      <ul>
+        <li>Developed RESTful APIs using Django Rest Framework</li>
+        <li>Created data scraping and ETL pipelines for large-scale web applications</li>
+        <li>Worked on Elasticsearch integration and Angular-based dashboards</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Education</h2>
+      <p class="edu-details">BS in Software Engineering – COMSATS Institute of Information Technology (2013–2017)</p>
+    </section>
+    <section>
+      <h2>Languages</h2>
+      <ul class="lang-details">
+        <li>English – Full Professional Proficiency</li>
+        <li>Urdu – Native Fluency</li>
+      </ul>
+    </section>
+  </main>
+
+
+</body></html>
