@@ -52,15 +52,6 @@
     .sidebar h1 {
       font-size: 2rem;
     }
-    
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    @keyframes blink {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: #e0f2fe; }
-    }
     .sidebar a {
       display: inline-flex;
       align-items: center;
@@ -99,17 +90,17 @@
       margin-bottom: 2.5rem;
     }
     .section h2 {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: linear-gradient(to right, var(--primary), var(--primary-dark));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: fadeInUp 0.6s ease;
-  font-weight: 700;
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  position: relative;
-}
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInUp 0.6s ease;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
     .section h2::after {
       content: '';
       position: absolute;
@@ -141,90 +132,86 @@
       color: #6b7280;
       margin-bottom: 0.5rem;
     }
-    $1
-  position: relative;
-  overflow: hidden;
-  animation: pulseResume 2.5s infinite;
-}
+    .download-btn {
+      background: var(--primary);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      animation: pulseResume 2.5s infinite;
+    }
     .download-btn:hover {
       background-color: var(--primary-dark);
     }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      color: white;
+      text-decoration: none;
+    }
+    .contact-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    @keyframes pulseResume {
+      0% { box-shadow: 0 0 5px var(--primary); }
+      50% { box-shadow: 0 0 20px var(--primary-dark); }
+      100% { box-shadow: 0 0 5px var(--primary); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounceChat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes pulseChat {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
     .whatsapp-button {
-  position: fixed;
-  top: 85vh;
-  left: 20px;
-  background-color: #25d366;
-  color: white;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  animation: pulseChat 1.5s infinite, bounceChat 3s infinite;
-  transition: transform 0.3s ease;
-}
+      position: fixed;
+      bottom: 30px;
+      left: 20px;
+      background-color: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      text-decoration: none;
+      z-index: 1000;
+      animation: pulseChat 1.8s infinite, bounceChat 2.5s infinite;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
     }
     .whatsapp-button:hover {
-      transform: scale(1.1);
+      transform: scale(1.12);
     }
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
       }
     }
-  @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-      100% { transform: scale(1); }
-    }
-  @keyframes glow {
-  0% { box-shadow: 0 0 5px var(--primary); }
-  100% { box-shadow: 0 0 15px var(--primary-dark); }
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  color: white;
-  text-decoration: none;
-}
-.contact-link:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-@keyframes pulseResume {
-  0% { box-shadow: 0 0 5px var(--primary); }
-  50% { box-shadow: 0 0 20px var(--primary-dark); }
-  100% { box-shadow: 0 0 5px var(--primary); }
-}
-@keyframes bounceChat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-@keyframes pulseChat {
-  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
-</style>
+  </style>
 </head>
 <body>
-  <a class="whatsapp-button" href="https://wa.me/923087213420" target="_blank" title="Chat on WhatsApp">📱</a>
+  <a class="whatsapp-button" href="https://wa.me/923087213420" target="_blank" title="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="28" height="28">
+  </a>
   <div class="container">
     <div class="sidebar">
       <h1>Muhammad Umar</h1>
@@ -233,8 +220,8 @@
       </p>
       <a href="mailto:umar6545@gmail.com">📧 umar6545@gmail.com</a>
       <a href="tel:+923087213420">📞 +92 308 7213420</a>
-      <a href="https://linkedin.com/in/umar-ch-6507a5a6" target="_blank">🔗 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" width="20" height="20"> LinkedIn</a>
-      <a href="https://github.com/UMAR6545" target="_blank">💻 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="20" height="20"> GitHub</a>
+      <a href="https://linkedin.com/in/umar-ch-6507a5a6" target="_blank">🔗 LinkedIn</a>
+      <a href="https://github.com/UMAR6545" target="_blank">💻 GitHub</a>
       <a href="resume.pdf" download class="download-btn">📥 Ready to Hire? Download My Resume Now</a>
       <button class="toggle-dark" onclick="document.body.classList.toggle('dark-mode')">🌓 Toggle Dark Mode</button>
       <a href="#" title="Address" class="contact-link">🏠 Lahore, Pakistan</a>
