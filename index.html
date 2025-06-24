@@ -1,139 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muhammad Umar - Senior Software Engineer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Umar - Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --primary: #0a66c2;
+      --primary-dark: #004182;
+      --bg-light: #f0f4ff;
+      --bg-dark: #0f172a;
+      --text-light: #1f2937;
+      --text-dark: #f8fafc;
     }
     body {
+      margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f0f4f8;
-      color: #1a202c;
-      line-height: 1.6;
+      background: linear-gradient(to bottom, var(--bg-light), #ffffff);
+      color: var(--text-light);
+      transition: background 0.4s ease, color 0.4s ease;
+      scroll-behavior: smooth;
     }
-    header {
-      background-color: #1e3a8a;
-      color: white;
-      padding: 3rem 1rem;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
     }
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-    }
-    header p {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-    }
-    .contact a {
-      color: #dbeafe;
-      text-decoration: underline;
-    }
-    main {
-      max-width: 900px;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
       margin: 2rem auto;
-      padding: 0 1rem;
-      background-color: white;
+      background: white;
       border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
     }
-    section {
+    body.dark-mode .container {
+      background: #1e293b;
+    }
+    .sidebar {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      flex: 1;
+      min-width: 260px;
       padding: 2rem;
-      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
     }
-    section:last-child {
-      border-bottom: none;
+    .sidebar h1 {
+      font-size: 2rem;
     }
-    h2 {
-      font-size: 1.5rem;
-      color: #1e3a8a;
+    .typing {
+      font-size: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #e0f2fe;
+      width: 0;
+      animation: typing 4s steps(30, end) forwards, blink 1s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #e0f2fe; }
+    }
+    .sidebar a {
+      color: #e0f2fe;
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .sidebar a:hover {
+      transform: scale(1.05);
+      color: #ffffff;
+    }
+    .toggle-dark {
+      margin-top: 1rem;
+      background: #0ea5e9;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .toggle-dark:hover {
+      background: #0369a1;
+    }
+    .content {
+      flex: 2;
+      padding: 2.5rem;
+    }
+    .section {
+      margin-bottom: 2.5rem;
+    }
+    .section h2 {
+      font-size: 1.6rem;
+      color: var(--primary-dark);
       margin-bottom: 1rem;
-      border-left: 4px solid #2563eb;
-      padding-left: 0.75rem;
+      position: relative;
     }
-    ul {
+    .section h2::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 3px;
+      background-color: var(--primary);
+      left: 0;
+      bottom: -8px;
+    }
+    .section ul {
       padding-left: 1.5rem;
-      list-style-type: disc;
+      list-style: disc;
+    }
+    .section li {
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .section li:hover {
+      color: var(--primary);
+      transform: translateX(5px);
     }
     .job-title {
       font-weight: 600;
-      color: #1e3a8a;
+      color: var(--primary-dark);
       margin-top: 1rem;
     }
     .job-details {
-      margin-bottom: 1rem;
-      color: #4b5563;
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-bottom: 0.5rem;
     }
-    .edu-details, .lang-details {
-      color: #4b5563;
+    .download-btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.95rem;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .download-btn:hover {
+      background-color: var(--primary-dark);
+    }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-button:hover {
+      transform: scale(1.1);
+    }
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Muhammad Umar</h1>
-    <p>Senior Software Engineer – Automation | Backend | AI Integration</p>
-    <p class="contact">
-      📧 <a href="mailto:umar6545@gmail.com">umar6545@gmail.com</a> |
-      📍 Lahore, Pakistan |
-      <a href="https://linkedin.com/in/umar-ch-6507a5a6" target="_blank">LinkedIn</a> |
-      <a href="https://github.com/UMAR6545" target="_blank">GitHub</a> |
-      ☎️ <a href="tel:+923087213420">+92 308 7213420</a> |
-      💬 <a href="https://wa.me/923087213420" target="_blank">WhatsApp Direct Chat</a>
-    </p>
-  </header>
-  <main>
-    <section>
-      <h2>Professional Summary</h2>
-      <p>I am a results-driven Software Engineer with 7+ years of expertise in automation, backend development, and AI-enhanced systems. I specialize in designing robust, scalable solutions using modern frameworks and tools. I thrive in cross-functional teams, constantly evolving to meet the challenges of new technologies including Generative AI and intelligent test frameworks.</p>
-    </section>
-    <section>
-      <h2>Skills</h2>
-      <ul>
-        <li>Languages: Python, JavaScript, TypeScript</li>
-        <li>Frameworks: Django, FastAPI, Flask, Pytest, REST APIs</li>
-        <li>Testing: Selenium, Playwright, Cypress, Appium, Locust</li>
-        <li>AI/ML: OpenAI API, Prompt Engineering, LangChain</li>
-        <li>DevOps: GitHub Actions, Docker, Datadog, CI/CD Pipelines</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Work Experience</h2>
-      <p class="job-title">Senior Software Engineer – Arbisoft</p>
-      <p class="job-details">March 2019 – Present | Lahore, Pakistan</p>
-      <ul>
-        <li>Led automation engineering efforts using Pytest and Cypress</li>
-        <li>Designed and integrated scalable testing frameworks with CI/CD workflows</li>
-        <li>Built performance and load testing setup using Locust + Datadog</li>
-        <li>Incorporated LLMs and prompt engineering into QA workflows</li>
-        <li>Mentored junior engineers and introduced best practices in automation</li>
-      </ul>
-      <p class="job-title">Python Developer – BrainPlow</p>
-      <p class="job-details">August 2017 – February 2019 | Lahore, Pakistan</p>
-      <ul>
-        <li>Developed RESTful APIs using Django Rest Framework</li>
-        <li>Created data scraping and ETL pipelines for large-scale web applications</li>
-        <li>Worked on Elasticsearch integration and Angular-based dashboards</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Education</h2>
-      <p class="edu-details">BS in Software Engineering – COMSATS Institute of Information Technology (2013–2017)</p>
-    </section>
-    <section>
-      <h2>Languages</h2>
-      <ul class="lang-details">
-        <li>English – Full Professional Proficiency</li>
-        <li>Urdu – Native Fluency</li>
-      </ul>
-    </section>
-  </main>
+  <a class="whatsapp-button" href="https://wa.me/923087213420" target="_blank" title="Chat on WhatsApp">💬</a>
+  <div class="container">
+    <div class="sidebar">
+      <h1>Muhammad Umar</h1>
+      <p class="typing">Senior Software Engineer | Automation | AI</p>
+      <a href="mailto:umar6545@gmail.com">📧 umar6545@gmail.com</a>
+      <a href="tel:+923087213420">📞 +92 308 7213420</a>
+      <a href="https://linkedin.com/in/umar-ch-6507a5a6" target="_blank">🔗 LinkedIn</a>
+      <a href="https://github.com/UMAR6545" target="_blank">💻 GitHub</a>
+      <a href="resume.pdf" download class="download-btn">⬇️ Download Resume PDF</a>
+      <button class="toggle-dark" onclick="document.body.classList.toggle('dark-mode')">🌓 Toggle Dark Mode</button>
+      <p>📍 Lahore, Pakistan</p>
+    </div>
+    <div class="content">
+      <div class="section">
+        <h2>Professional Summary</h2>
+        <p>Results-oriented Senior Software Engineer with over 7 years of hands-on experience in scalable automation frameworks, backend API design, and intelligent systems integration. Skilled in solving real-world problems through high-performance architectures and expert-level code practices.</p>
+      </div>
+      <div class="section">
+        <h2>Skills</h2>
+        <ul>
+          <li>Expert Python (asyncio, FastAPI, Django), JavaScript/TypeScript</li>
+          <li>Automation: Playwright, Selenium, Appium, Cypress</li>
+          <li>CI/CD & DevOps: GitHub Actions, Docker, Linux CLI, Datadog</li>
+          <li>AI Tools: OpenAI API, LangChain, prompt engineering</li>
+          <li>Web APIs, performance/load testing, cloud integration</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2>Work Experience</h2>
+        <p class="job-title">Senior Software Engineer – Arbisoft</p>
+        <p class="job-details">Mar 2019 – Present | Lahore, Pakistan</p>
+        <ul>
+          <li>Architected automation infrastructure across web and mobile platforms</li>
+          <li>Integrated LLM-based tools to auto-generate test data and coverage reports</li>
+          <li>Mentored QA/dev teams on CI/CD pipeline best practices</li>
+        </ul>
+        <p class="job-title">Python Developer – BrainPlow</p>
+        <p class="job-details">Aug 2017 – Feb 2019 | Lahore, Pakistan</p>
+        <ul>
+          <li>Designed RESTful services, scrapers, and dynamic dashboards</li>
+          <li>Led Python backend logic for real-time analytics pipeline</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2>Education</h2>
+        <p>BS in Software Engineering – COMSATS University (2013–2017)</p>
+      </div>
+      <div class="section">
+        <h2>Languages</h2>
+        <ul>
+          <li>English – Full Professional Proficiency</li>
+          <li>Urdu – Native Fluency</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
