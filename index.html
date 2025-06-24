@@ -173,14 +173,18 @@
       50% { transform: scale(1.15); }
       100% { transform: scale(1); }
     }
-  </style>
+  @keyframes glow {
+  0% { box-shadow: 0 0 5px var(--primary); }
+  100% { box-shadow: 0 0 15px var(--primary-dark); }
+}
+</style>
 </head>
 <body>
   <a class="whatsapp-button" href="https://wa.me/923087213420" target="_blank" title="Chat on WhatsApp">💬</a>
   <div class="container">
     <div class="sidebar">
       <h1>Muhammad Umar</h1>
-      <p style="font-size: 1rem; line-height: 1.6; font-weight: 500;">
+      <p style="font-size: 1rem; line-height: 1.6; font-weight: 500; background: linear-gradient(90deg, var(--primary), var(--primary-dark)); color: white; padding: 0.4rem 0.6rem; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); animation: glow 3s ease-in-out infinite alternate;">
         Senior Software Engineer | Automation Testing | AI Integrations | Backend Developer | DevOps Automation
       </p>
       <a href="mailto:umar6545@gmail.com">📧 umar6545@gmail.com</a>
