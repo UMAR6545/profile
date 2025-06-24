@@ -149,8 +149,25 @@
     .download-btn:hover {
       background-color: var(--primary-dark);
     }
-    $1
+    .whatsapp-button {
+  position: fixed;
+  top: 85vh;
+  left: 20px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
   animation: pulseChat 1.5s infinite, bounceChat 3s infinite;
+  transition: transform 0.3s ease;
+}
     }
     .whatsapp-button:hover {
       transform: scale(1.1);
