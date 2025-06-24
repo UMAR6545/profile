@@ -48,6 +48,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
+      position: relative;
     }
     .sidebar h1 {
       font-size: 2rem;
@@ -69,15 +70,36 @@
       transform: scale(1.05);
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
+    .floating-btns {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .download-btn {
+      background: var(--primary);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      animation: pulseResume 2.5s infinite;
+    }
+    .download-btn:hover {
+      background-color: var(--primary-dark);
+    }
     .toggle-dark {
-      margin-top: 1rem;
       background: #0ea5e9;
       color: white;
       border: none;
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
       border-radius: 6px;
       cursor: pointer;
       transition: background 0.3s ease;
+      font-weight: 600;
     }
     .toggle-dark:hover {
       background: #0369a1;
@@ -131,19 +153,6 @@
       font-size: 0.95rem;
       color: #6b7280;
       margin-bottom: 0.5rem;
-    }
-    .download-btn {
-      background: var(--primary);
-      color: white;
-      padding: 0.6rem 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      animation: pulseResume 2.5s infinite;
-    }
-    .download-btn:hover {
-      background-color: var(--primary-dark);
     }
     .contact-link {
       display: inline-flex;
@@ -222,9 +231,11 @@
       <a href="tel:+923087213420">📞 +92 308 7213420</a>
       <a href="https://linkedin.com/in/umar-ch-6507a5a6" target="_blank">🔗 LinkedIn</a>
       <a href="https://github.com/UMAR6545" target="_blank">💻 GitHub</a>
-      <a href="resume.pdf" download class="download-btn">📥 Ready to Hire? Download My Resume Now</a>
-      <button class="toggle-dark" onclick="document.body.classList.toggle('dark-mode')">🌓 Toggle Dark Mode</button>
       <a href="#" title="Address" class="contact-link">🏠 Lahore, Pakistan</a>
+      <div class="floating-btns">
+        <a href="resume.pdf" download class="download-btn">📥 Hire Me</a>
+        <button class="toggle-dark" onclick="document.body.classList.toggle('dark-mode')">🌓 Theme</button>
+      </div>
     </div>
     <div class="content">
       <div class="section">
